@@ -5,6 +5,7 @@
   background-color:blanchedalmond;
   margin:10px;
   margin-top: 2em;
+  margin-bottom: 2em;
 }
 .container {
   display: flex;
@@ -21,9 +22,10 @@ textarea {
   width: 100%;
   margin-bottom: 0.5em;
   background-color:blanchedalmond;
-  border-style: none none outset none;
+  border-style: none none solid none;
   border-width: 5px;
-  border-color: rgba(171, 166, 166, 0.353);
+  border-radius: 5px;
+  border-color: darkslategrey;
   outline: none;
 }
 

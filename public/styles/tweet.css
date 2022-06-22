@@ -1,0 +1,36 @@
+.tweets-container {
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.tweet {
+  width:95%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 5px;
+  border-color: darkslategrey;
+  padding: 0.5em;
+  margin-bottom: 20px;
+
+}
+
+.tweet header,footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet p {
+  width:100%;
+  display: flex;
+  margin: 15px;
+  border-style: none none solid none;
+  border-width: 4px;
+  padding: 5px;
+}

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -36,7 +37,8 @@
         </div>
       </span>
     </nav>
-    <header>
+    <!-- Top header-->
+    <header class="main-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -58,26 +60,48 @@
         </form>
       </section>
       <section class="tweets-container">
-        <article>
+        <article class="tweet">
           <header>
-            this is the header of some tweet
+            <span>
+              <i class="fa-solid fa-user-astronaut"></i>
+              Declan
+            </span>
+            <small>
+              @DexTheFish
+            </small>
           </header>
-          <div>
-            these are the main bits of some tweet
-          </div>
+          <p>
+            Fish goes swim swim in the pond. Splish splosh
+          </p>
           <footer>
-            this is the foot of some tweet
+            <div>
+              10 days ago   
+            </div>
+            <div>
+              flag, retweet, like
+            </div>
           </footer>
         </article>
-        <article>
+        <article class="tweet">
           <header>
-            this is the header of another tweet
+            <span>
+              <i class="fa-solid fa-user-astronaut"></i>
+              Runkle
+            </span>
+            <small>
+             @TheBigDunkle
+            </small>
           </header>
-          <div>
-            these are the main bits of another tweet
-          </div>
+          <p>
+            Tweet tweet goes the bird, fly high in the sky, chirp chirp.
+          </p>
           <footer>
-            this is the foot of another tweet
+            <div>
+              15 days ago   
+            </div>
+            <div>
+              flag, retweet, like
+            </div>
           </footer>
         </article>
       </section>
