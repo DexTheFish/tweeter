@@ -24,6 +24,7 @@ textarea {
   border-style: none none outset none;
   border-width: 5px;
   border-color: rgba(171, 166, 166, 0.353);
+  outline: none;
 }
 
 .counter {
