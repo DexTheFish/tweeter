@@ -12,12 +12,15 @@
   align-items: center;
   flex-direction: column;
   border-style: solid;
-  border-width: 5px;
+  border-width: 4px;
   border-radius: 5px;
   border-color: darkslategrey;
   padding: 0.5em;
   margin-bottom: 20px;
+}
 
+.tweet small {
+  color:grey;
 }
 
 .tweet header,footer {
@@ -26,11 +29,16 @@
   justify-content: space-between;
 }
 
+.tweet footer {
+  font-size: small;
+}
 .tweet p {
   width:100%;
   display: flex;
   margin: 15px;
   border-style: none none solid none;
   border-width: 4px;
-  padding: 5px;
+  padding: 0.5em;
+  font-family: "Source Sans Pro", "sans-serif";
+  font-weight: 600;
 }
