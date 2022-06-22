@@ -19,6 +19,10 @@
   margin-bottom: 20px;
 }
 
+.tweet:hover {
+  box-shadow: 7px 7px rgb(180, 180, 180);
+}
+
 .tweet small {
   color:grey;
 }
@@ -30,7 +34,7 @@
 }
 
 .tweet footer {
-  font-size: small;
+  font-size: 0.7em;
 }
 .tweet p {
   width:100%;
@@ -41,4 +45,13 @@
   padding: 0.5em;
   font-family: "Source Sans Pro", "sans-serif";
   font-weight: 600;
+}
+
+.action {
+  color:blue;
+}
+
+.action i:hover {
+  color: orange;
+  /* font-size: 120%;  how to do this without jiggling the entire tweet box? */
 }
