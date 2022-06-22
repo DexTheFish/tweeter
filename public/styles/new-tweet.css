@@ -53,3 +53,7 @@ label {
   font-family: 'Bungee', 'sans-serif';
   font-weight: bold;
 }
+
+.long {
+  color:red;
+}

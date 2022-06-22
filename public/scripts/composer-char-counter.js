@@ -9,8 +9,15 @@ $(document).ready(function() { //triggers callback function when DOM has finishe
     // access the counter by tree traversal:
     const formObject = tweetObject.parent();
     const counterObject = formObject.find(".counter");
+    // set its value:
     counterObject.text(remainingChars);
-    
+    // check for eligible values:
+    if (remainingChars < 0) {
+      counterObject.addClass("long");
+    }
+    if (remainingChars >= 0) {
+      counterObject.removeClass("long");
+    }
   });
   //console.log('test2', $("textarea"));
 
