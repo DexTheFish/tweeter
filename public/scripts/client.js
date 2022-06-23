@@ -18,6 +18,13 @@ $(document).ready(() => {
     };
     
     const createTweetElement = function(tweet) { // convert tweet object into HTML
+
+      // escape function to help prevent XSS attacks via tweet.content.text
+      const escape = function (str) {
+        let div = document.createElement("div");
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+      };
       let $tweet = $(`
       <article class="tweet">
       <header>
@@ -30,7 +37,7 @@ $(document).ready(() => {
         </small>
       </header>
       <p>
-        ${tweet.content.text}
+        ${escape(tweet.content.text)}
       </p>
       <footer>
         <div>
