@@ -98,8 +98,11 @@ $(document).ready(() => {
     $(function() {
       const $form = $('.new-tweet form');
       $form.on('submit', function (event) {
-        console.log('form submitted, performing ajax call...');
+        console.log('form submitted, performing ajax call...'); //TEST CODE FOR DEBUGGING
         event.preventDefault();
+        const queryString = $(this).serialize();
+        console.log(queryString); //TEST CODE FOR DEBUGGING
+        $.ajax('/tweets/', { method: 'POST', data: queryString}).done();
         // // $.ajax('more-posts.html', { method: 'POST' })
         // // .then(function (morePostsHtml) {
         // //   console.log('Success: ', morePostsHtml);
