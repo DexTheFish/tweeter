@@ -17,7 +17,7 @@ $(document).ready(() => {
       });
     };
     
-    const createTweetElement = function(tweet) { // !! date should be converted from an integer to "X days ago"
+    const createTweetElement = function(tweet) { // convert tweet object into HTML
       let $tweet = $(`
       <article class="tweet">
       <header>
@@ -47,11 +47,10 @@ $(document).ready(() => {
       return $tweet;
     };
     
-    const loadTweets = function () { // get tweets from the server (/tweets) and render them
+    const loadTweets = function () { // get tweets from the server (/tweets/) and render them
       $.ajax('/tweets/', { method: 'GET' })
       .done(function(data) {
         renderTweets(data);
-        console.log('loadTweets is working... probably!') //TEST CODE FOR DEBUGGING
       })
     }
 
@@ -63,14 +62,23 @@ $(document).ready(() => {
         console.log('form submitted, performing ajax call...'); //TEST CODE FOR DEBUGGING
         event.preventDefault();
         const queryString = $(this).serialize();
-        console.log(queryString); //TEST CODE FOR DEBUGGING
+        const charCounter = $(".counter");
+        const tweetLength = $(charCounter).html();
+        console.log(typeof tweetLength); //test for debugging
+        if (tweetLength >= 140) {
+          alert('Cannot post an empty tweet!');
+          return;
+        }
+        if (tweetLength < 0) {
+          alert('Maximum tweet length exceeded!');
+          return;
+        }
+        console.log( Number(tweetLength));
         $.ajax('/tweets/', { method: 'POST', data: queryString})
         // reload the tweets after a new one is posted
         .done(() =>
         loadTweets());
       });
     });
-
-
 
   });
