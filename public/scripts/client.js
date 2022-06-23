@@ -23,7 +23,7 @@ $(document).ready(() => {
       <header>
         <span>
         <img src=${tweet.user.avatars}>
-          ${tweet.user.name}
+          &nbsp${tweet.user.name}
         </span>
         <small>
           ${tweet.user.handle}
