@@ -54,6 +54,8 @@ $(document).ready(() => {
   ];
     
     const renderTweets = function(tweets) {
+      // refresh the container
+      $(".tweets-container").empty();
       // loops through tweets
       tweets.forEach(tweet => {
         // calls createTweetElement for each tweet
@@ -93,21 +95,30 @@ $(document).ready(() => {
       return $tweet;
     };
     
-    renderTweets(data);
+    const loadTweets = function () { // get tweets from the server (/tweets) and render them
+      $.ajax('/tweets/', { method: 'GET' })
+      .done(function(data) {
+        renderTweets(data);
+        console.log('loadTweets is working... probably!') //TEST CODE FOR DEBUGGING
+      })
+    }
+
+    loadTweets();
     
-    $(function() {
+    $(function() { // send new tweets to server
       const $form = $('.new-tweet form');
       $form.on('submit', function (event) {
         console.log('form submitted, performing ajax call...'); //TEST CODE FOR DEBUGGING
         event.preventDefault();
         const queryString = $(this).serialize();
         console.log(queryString); //TEST CODE FOR DEBUGGING
-        $.ajax('/tweets/', { method: 'POST', data: queryString}).done();
-        // // $.ajax('more-posts.html', { method: 'POST' })
-        // // .then(function (morePostsHtml) {
-        // //   console.log('Success: ', morePostsHtml);
-        // //   $button.replaceWith(morePostsHtml);
-        // });
+        $.ajax('/tweets/', { method: 'POST', data: queryString})
+        // reload the tweets after a new one is posted
+        .done(() =>
+        loadTweets());
       });
     });
+
+
+
   });
