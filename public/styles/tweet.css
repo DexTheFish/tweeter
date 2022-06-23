@@ -10,6 +10,9 @@
   height: auto;
 }
 
+.tweet span {
+  display: flex;
+}
 
 .tweet {
   width:95%;
