@@ -95,4 +95,16 @@ $(document).ready(() => {
     
     renderTweets(data);
     
+    $(function() {
+      const $form = $('.new-tweet form');
+      $form.on('submit', function (event) {
+        console.log('form submitted, performing ajax call...');
+        event.preventDefault();
+        // // $.ajax('more-posts.html', { method: 'POST' })
+        // // .then(function (morePostsHtml) {
+        // //   console.log('Success: ', morePostsHtml);
+        // //   $button.replaceWith(morePostsHtml);
+        // });
+      });
+    });
   });
