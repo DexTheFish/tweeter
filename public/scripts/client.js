@@ -7,13 +7,13 @@ $(document).ready(() => {
 
     const renderTweets = function(tweets) {
       // refresh the container
-      $(".tweets-container").empty();
+      $(".tweets-container").empty(); //deleting the elem,ents themselves
       // loops through tweets
       tweets.forEach(tweet => {
         // calls createTweetElement for each tweet
         const tweetElement = createTweetElement(tweet);
         // takes return value and appends it to the tweets container
-        $(".tweets-container").append(tweetElement);
+        $(".tweets-container").prepend(tweetElement);
       });
     };
     
@@ -59,12 +59,10 @@ $(document).ready(() => {
     $(function() { // send new tweets to server
       const $form = $('.new-tweet form');
       $form.on('submit', function (event) {
-        console.log('form submitted, performing ajax call...'); //TEST CODE FOR DEBUGGING
         event.preventDefault();
         const queryString = $(this).serialize();
         const charCounter = $(".counter");
         const tweetLength = $(charCounter).html();
-        console.log(typeof tweetLength); //test for debugging
         if (tweetLength >= 140) {
           alert('Cannot post an empty tweet!');
           return;
@@ -73,12 +71,14 @@ $(document).ready(() => {
           alert('Maximum tweet length exceeded!');
           return;
         }
-        console.log( Number(tweetLength));
         $.ajax('/tweets/', { method: 'POST', data: queryString})
         // reload the tweets after a new one is posted
-        .done(() =>
-        loadTweets());
+        .done(() => {
+          console.log($("textarea"));
+          loadTweets();
+          $("textarea").val("");
+        });
       });
     });
-    
+
   });

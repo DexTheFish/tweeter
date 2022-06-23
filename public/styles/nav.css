@@ -9,13 +9,12 @@ nav {
   position: fixed; /* scrolling doesn't affect the nav bar */
   top: 0; /* nav bar appears at top of page */
   z-index: 2; /* nav bar appears on top of content with a lower z-index */
+  padding: 1.5em;
 }
 
 
 nav span {
   font-family: 'Bungee', 'sans-serif';
-  margin-left: 1.5em;
-  margin-right: 1.5em;
   font-size: 32px;
 }
 
