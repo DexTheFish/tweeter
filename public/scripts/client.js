@@ -54,15 +54,14 @@ $(document).ready(() => {
       })
     }
 
-    loadTweets();
-    
-    $(function() { // send new tweets to server
+    $(function() { // Form submission handler
       const $form = $('.new-tweet form');
       $form.on('submit', function (event) {
         event.preventDefault();
         const queryString = $(this).serialize();
         const charCounter = $(".counter");
         const tweetLength = $(charCounter).html();
+        // check for invalid tweet
         if (tweetLength >= 140) {
           alert('Cannot post an empty tweet!');
           return;
@@ -71,14 +70,17 @@ $(document).ready(() => {
           alert('Maximum tweet length exceeded!');
           return;
         }
+        // send tweet to server
         $.ajax('/tweets/', { method: 'POST', data: queryString})
-        // reload the tweets after a new one is posted
         .done(() => {
-          console.log($("textarea"));
+          // reload the tweets after a new one is posted
           loadTweets();
+          // clear the form
           $("textarea").val("");
         });
       });
     });
+
+    loadTweets();
 
   });
