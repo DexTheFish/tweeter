@@ -62,5 +62,4 @@
 
 .action i:hover {
   color: orange;
-  /* font-size: 120%;  how to do this without jiggling the entire tweet box? */
 }

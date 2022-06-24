@@ -39,5 +39,19 @@ main {
   flex-direction: column;
   align-items: center;
   color: #545149;
-  margin:auto; /* keeps main centered relative to body, after width=90% */
+  margin:auto;
+}
+
+@media (min-width:1024px) {
+  body {
+    flex-direction: row;
+    display: flex;
+    padding-top: 100px;
+    align-items: stretch;
+    background-color: blanchedalmond;
+  }
+
+  main {
+    margin: auto 2vw auto 2vw;
+  }
 }
