@@ -70,15 +70,15 @@ $(document).ready(() => {
         const tweetLength = $(charCounter).html();
         // check for invalid tweet
         if (tweetLength >= 140) {
-          // alert('Cannot post an empty tweet!');
-          // set the content of #error and 'show' it:
-          $("#error").html("\⚠️ Cannot post an empty tweet! \⚠️").show();
+          $("#error").slideUp(() => {
+            $("#error").html("\⚠️ Cannot post an empty tweet! \⚠️").slideDown();
+          })
           return;
         }
         if (tweetLength < 0) {
-          // alert('Maximum tweet length exceeded!'); <- outdated
-          // set the content of #error and 'show' it
-          $("#error").html("\⚠️ Maximum tweet length exceeded! \⚠️").show();
+          $("#error").slideUp(() => {
+            $("#error").html("\⚠️ Maximum tweet length exceeded! \⚠️").slideDown();
+          })
           return;
         }
         // send tweet to server
@@ -88,7 +88,7 @@ $(document).ready(() => {
           loadTweets();
           $("textarea").val("");
           $(".counter").html('140');
-          $("#error").hide();
+          $("#error").slideUp();
         });
       });
     });
